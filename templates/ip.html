@@ -1,21 +1,27 @@
 
 <html>
-  <head>
+<head>
     <title>{{ip}}</title>
     <style type="text/css">
-            body{
-                background-color: black;
-                color: white;
-            }
-            div{
-                position: absolute;
-                margin:; 0 auto;
-                font-family: Arial;
-                font-size: 200px;
-            }
-            </style>
-  </head>
-  <body>
-    <div>{{ip}}</div>
-  </body>
-</html>
+    .outer{
+    }
+    .inner{
+        line-height: 200px;
+        font-family: Arial;
+        font-size: 200px;
+    }
+    </style>
+</head>
+<body>
+    <div class="outer"><div class="inner">{{ip}}</div></div>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="/static/trianglify.js"></script>
+
+    <script>
+        var t = new Trianglify();
+        var pattern = t.generate(document.body.clientWidth, document.body.clientHeight);
+        document.body.setAttribute('style', 'background-image: '+pattern.dataUrl);
+
+        </script>
+    </body>
+    </html>
